@@ -1,21 +1,18 @@
+windowHeight = innerHeight - 50;
+windowWidth = innerWidth - 50;
+
 var svg = d3.select("body")
             .append("svg")
-            .attr("width", 1500)
-            .attr("height", 1500);
-
-var rectangle = svg.selectAll("rect")
-    .data([2])
-    .enter()
-    .append("rect");
+            .attr("width", windowWidth)
+            .attr("height", windowHeight);
 
 var circle = svg.selectAll("circle")
     .data([2])
     .enter()
     .append("circle");
 
-
-// rectangle.attr("y",20).attr("x",100).attr("width",500).attr("height",500).attr("fill", "skyblue"); 
-circle.attr("cy",270).attr("cx",350).attr("r",250).attr("fill", "teal")
+circle.attr("cy",windowHeight/2).attr("cx",windowWidth/2).attr("r",windowHeight < windowWidth ? windowHeight/2 : windowWidth/2)
+    .attr("fill", "teal")
     .on("mouseenter", mouseEnterBehaviour);
 
 function mouseEnterBehaviour(d,i){
@@ -50,5 +47,4 @@ function divideToFourCircles(element){
        .attr("r", function(d) {
             return d.r;
        });
-
 }
