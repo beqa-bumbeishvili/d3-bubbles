@@ -2,9 +2,9 @@ windowHeight = innerHeight - 50;
 windowWidth = innerWidth - 50;
 
 var svg = d3.select("body")
-            .append("svg")
-            .attr("width", windowWidth)
-            .attr("height", windowHeight);
+              .append("svg")
+              .attr("width", windowWidth)
+              .attr("height", windowHeight)
 
 var circle = svg.selectAll("circle")
     .data([2])
